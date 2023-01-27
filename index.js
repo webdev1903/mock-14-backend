@@ -5,11 +5,13 @@ const cors = require("cors");
 const app = express();
 
 const wordController = require("./controllers/word.controller");
+const userController = require("./controllers/user.controller");
 
 app.use(cors());
 app.use(express.json());
 
 app.use("", wordController);
+app.use("/playzone", userController);
 
 app.listen(process.env.PORT, async () => {
   try {
